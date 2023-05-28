@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 
-interface BoxProps {
+interface BoxProps extends HTMLAttributes<HTMLDivElement> {
 	children: React.ReactNode;
 	className?: string;
 }

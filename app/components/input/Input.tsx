@@ -7,7 +7,7 @@ export const input = tv({
 	variants: {
 		filevariant: {
 			true:
-				'p-0 file:h-full file:cursor-pointer hover:file:bg-blue-400 file:px-4 file:py-2.5 file:bg-blue-500 file:text-white file:border-none file:me-4'
+				'p-0 file:h-full file:cursor-pointer hover:file:bg-blue-400 file:px-4 file:py-2 file:bg-blue-500 file:text-white file:border-none file:me-4'
 		}
 	}
 });

@@ -3,11 +3,11 @@ import { VariantProps, tv } from 'tailwind-variants';
 
 export const input = tv({
 	base:
-		'w-full bg-transparent border-2 border-solid border-blue-500 rounded-md px-4 py-2 text-black placeholder:text-gray-light',
+		'w-full bg-transparent border-2 border-solid border-blue-500 rounded-md px-4 py-2 text-black placeholder:text-gray-light hover:border-blue-800',
 	variants: {
 		filevariant: {
 			true:
-				'p-0 file:h-full file:cursor-pointer hover:file:bg-blue-400 file:px-4 file:py-2 file:bg-blue-500 file:text-white file:border-none file:me-4'
+				'p-0 file:h-full file:cursor-pointer hover:file:bg-blue-800 file:px-4 file:py-2 file:bg-blue-500 file:text-white file:border-none file:me-4'
 		}
 	}
 });

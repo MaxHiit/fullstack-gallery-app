@@ -1,17 +1,17 @@
 'use client';
 
+import { useCallback } from 'react';
+import { PlusIcon } from '@heroicons/react/24/outline';
+import useUploadModal from '@/app/hooks/useUploadModal';
 import Logo from './Logo';
 import Button from '../button/Button';
-import { PlusIcon } from '@heroicons/react/24/outline';
-import { useContext } from 'react';
-import { AppStateContext } from '@/app/context/AppStateContext';
 
 const Header = () => {
-	const { isOpen, setIsOpen } = useContext(AppStateContext);
+	const uploadModal = useUploadModal();
 
-	const handleOpenUploadBar = () => {
-		setIsOpen(!isOpen);
-	};
+	const handleToggleUploadModal = useCallback(() => {
+		uploadModal.onToggle();
+	}, [uploadModal]);
 
 	return (
 		<header className='sticky top-0 z-10 bg-black mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
@@ -20,12 +20,14 @@ const Header = () => {
 					<Logo />
 				</div>
 				<div className='flex flex-1 justify-end'>
-					<Button aria-label='open upload bar button' color='primary' onClick={handleOpenUploadBar}>
+					<Button aria-label='open upload bar button' color='primary' onClick={handleToggleUploadModal}>
 						<PlusIcon
-							className={`h-6 w-6 transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}
+							className={`h-6 w-6 transition-transform duration-500 ${
+								uploadModal.isOpen ? 'rotate-45' : 'rotate-0'
+							}`}
 						/>
 
-						<span>{isOpen ? 'Close' : 'Add a image'} </span>
+						<span>{uploadModal.isOpen ? 'Close' : 'Add a image'} </span>
 					</Button>
 				</div>
 			</nav>

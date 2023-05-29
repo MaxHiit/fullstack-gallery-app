@@ -5,12 +5,15 @@ interface BoxProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string;
 }
 
-const Box = ({ className, children, ...rest }: BoxProps) => {
+const Box = forwardRef(function Box(
+	{ className, children, ...rest }: BoxProps,
+	ref: React.Ref<HTMLDivElement>
+) {
 	return (
-		<div className={`bg-slate-100 rounded-md p-2 ${className}`} {...rest}>
+		<div className={`bg-slate-100 rounded-md p-2 ${className}`} ref={ref} {...rest}>
 			{children}
 		</div>
 	);
-};
+});
 
 export default Box;

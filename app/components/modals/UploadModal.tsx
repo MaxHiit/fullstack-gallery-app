@@ -1,16 +1,16 @@
 'use client';
 
 import { ChangeEvent, FormEvent, useRef, useState } from 'react';
-// import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
+import useUploadModal from '@/app/hooks/useUploadModal';
+import Modal from './Modal';
 import Input from '../input/Input';
 import Button from '../button/Button';
-import Modal from './Modal';
-import useUploadModal from '@/app/hooks/useUploadModal';
 
 const UploadModal = () => {
-	// const router = useRouter();
-	// const pathname = usePathname();
+	const router = useRouter();
+	const pathname = usePathname();
 	const uploadModal = useUploadModal();
 
 	const [name, setName] = useState<string>('');
@@ -49,15 +49,13 @@ const UploadModal = () => {
 				body: formData
 			});
 
-			if (res.status === 400 || res.status === 404) {
+			if (!res.ok) {
 				throw new Error('Something wrong !');
 			}
 
-			if (res.ok) {
-				toast.success('Successfully uploaded !');
-				// updateGalleryData();
-				uploadModal.onClose();
-			}
+			toast.success('Successfully uploaded !');
+			router.replace(pathname);
+			uploadModal.onClose();
 		} catch (error: any) {
 			toast.error(error.message);
 		} finally {
@@ -75,7 +73,7 @@ const UploadModal = () => {
 
 	return (
 		<Modal title='Upload your image' isOpen={uploadModal.isOpen} onClose={handleCloseUploadModal}>
-			<form className='flex flex-col md:flex-row gap-3 mt-4' onSubmit={handleSubmit}>
+			<form className='flex flex-col md:flex-row gap-3' onSubmit={handleSubmit}>
 				<Input
 					className='flex-1 shrink-1'
 					type='text'
@@ -86,7 +84,7 @@ const UploadModal = () => {
 					required
 				/>
 				<Input
-					className='flex-1 shrink-1'
+					className='flex-1 shrink-1 group'
 					type='file'
 					name='upload-image'
 					ref={inputFileRef}

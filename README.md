@@ -16,14 +16,6 @@ Once on the site, a user can :
 
 ## Getting Started
 
-## Backend
-
-- In your backend app change api port to 3001
-
-```bash
-APP_PORT=3001
-```
-
 ## Frontend
 
 ## Installation:
@@ -36,11 +28,11 @@ yarn install
 pnpm install
 ```
 
-- In your frontend create your .env file and edit the api host url
+## Environment Variables
 
-```bash
-APP_BASE_URL=http://localhost:3001 or http://localhost:3000
-```
+To run this project, you will need to add the following environment variables to your .env file
+
+`APP_BASE_URL=http://localhost:3000`
 
 ## Running the app
 
@@ -52,7 +44,7 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

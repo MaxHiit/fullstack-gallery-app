@@ -3,7 +3,7 @@ import { ImageType } from '../types';
 export const getImages = async (): Promise<ImageType[]> => {
 	try {
 		const _HOST = process.env.API_URL_BASE;
-		const res = await fetch(`${_HOST}/images`);
+		const res = await fetch(`${_HOST}/images`, { cache: 'no-store' });
 		const data = await res.json();
 
 		return data;

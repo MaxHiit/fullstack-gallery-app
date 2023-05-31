@@ -1,4 +1,4 @@
-import { getImages } from './lib/getImages';
+import { getImages } from './actions/getImages';
 import Gallery from './components/gallery/Gallery';
 
 const Home = async () => {

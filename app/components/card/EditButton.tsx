@@ -10,7 +10,7 @@ const EditButton = ({ handleClick, children }: EditButtonProps) => {
 		<Button
 			aria-label='download image'
 			color='icon'
-			className='group bg-slate-400 bg-opacity-25'
+			className='group bg-slate-400 bg-opacity-25 hover:bg-slate-700'
 			onClick={handleClick}
 		>
 			{children}

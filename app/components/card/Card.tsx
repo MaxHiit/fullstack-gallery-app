@@ -9,6 +9,9 @@ import { PaintBrushIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
 import useEditImageModal from '@/app/hooks/useEditImageModal';
 import useEditNameModal from '@/app/hooks/useEditNameModal';
 import useUploadModal from '@/app/hooks/useUploadModal';
+import usePreview from '@/app/hooks/usePreview';
+import useEditor from '@/app/hooks/useEditor';
+import useFilter from '@/app/hooks/useFilter';
 import CardInfo from './CardInfo';
 import EditButton from './EditButton';
 import DownloadButton from './DownloadButton';
@@ -25,6 +28,10 @@ const Card = ({ image }: CardProps) => {
 	const editNameModal = useEditNameModal();
 	const editImageModal = useEditImageModal();
 
+	const preview = usePreview();
+	const editor = useEditor();
+	const filter = useFilter();
+
 	const handleOpenEditModal = useCallback(
 		(modalToOpen: string) => {
 			uploadModal.onClose();
@@ -36,8 +43,11 @@ const Card = ({ image }: CardProps) => {
 			}
 
 			if (modalToOpen === 'imageModal') {
-				editImageModal.image = { _id, url, contentType };
+				editImageModal.image = { name, _id, url, contentType };
 				editNameModal.onClose();
+				editor.onClose();
+				filter.onClose();
+				preview.onOpen();
 				editImageModal.onOpen();
 			}
 		},

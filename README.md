@@ -1,8 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Description
+
+In this project, you will be asked to create a photo management and editing application.
+photographs.
+Once on the site, a user can :
+
+- Upload new images;
+- List all uploaded images;
+- Rename listed images;
+- Download stored images.
+- Propose an editing panel for images with the following functionalities:
+  - Crop
+  - Resize
+  - Filter applications (Black & White and Sepia).
+  - Save edited images;
 
 ## Getting Started
 
-First, run the development server:
+## Backend
+
+- In your backend app change api port to 3001
+
+```bash
+APP_PORT=3001
+```
+
+## Frontend
+
+## Installation:
+
+```bash
+npm run install
+# or
+yarn install
+# or
+pnpm install
+```
+
+- In your frontend create your .env file and edit the api host url
+
+```bash
+APP_BASE_URL=http://localhost:3001 or http://localhost:3000
+```
+
+## Running the app
 
 ```bash
 npm run dev

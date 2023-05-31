@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import useEditImageModal from '@/app/hooks/useEditImageModal';
 import useFilter from '@/app/hooks/useFilter';
 
-const EditImagePreview = () => {
+const EditImagePreview = forwardRef<HTMLImageElement>(function EditImagePreview(props, ref) {
 	const [isLoading, setLoading] = useState(true);
 
 	const editImageModal = useEditImageModal();
@@ -17,6 +17,7 @@ const EditImagePreview = () => {
 		<>
 			<div className='w-full h-96 sm:h-[400px] overflow-hidden rounded-lg relative'>
 				<Image
+					ref={ref}
 					src={editImageModal.image.url ?? ''}
 					alt={editImageModal.image.url ?? 'default alt image'}
 					fill
@@ -29,6 +30,6 @@ const EditImagePreview = () => {
 			</div>
 		</>
 	);
-};
+});
 
 export default EditImagePreview;

@@ -1,12 +1,10 @@
-import { Toaster } from 'react-hot-toast';
+import ToasterProvider from './providers/ToasterProvider';
+import ModalProvider from './providers/ModalProvider';
 import Header from './components/header/Header';
-import UploadModal from './components/modals/UploadModal';
-import EditImageModal from './components/modals/EditImageModal';
-import EditNameModal from './components/modals/EditNameModal';
 
 import './globals.css';
-
 import { Inter } from 'next/font/google';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -18,17 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang='en'>
 			<body className={inter.className}>
+				<ToasterProvider />
+				<ModalProvider />
 				<Header />
-				<UploadModal />
-				<EditNameModal />
-				<EditImageModal />
-				<Toaster
-					position='top-center'
-					reverseOrder={false}
-					toastOptions={{
-						duration: 5000
-					}}
-				/>
 				{children}
 			</body>
 		</html>

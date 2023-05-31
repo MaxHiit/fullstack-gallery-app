@@ -27,8 +27,6 @@ const UploadModal = () => {
 
 		if (files && files.length > 0) {
 			const file = files[0];
-			console.log(file);
-
 			setSelectedFile(file);
 		}
 	};

@@ -3,15 +3,27 @@
 import { useCallback } from 'react';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import useUploadModal from '@/app/hooks/useUploadModal';
+import useEditNameModal from '@/app/hooks/useEditNameModal';
+import useEditImageModal from '@/app/hooks/useEditImageModal';
 import Logo from './Logo';
 import Button from '../button/Button';
 
 const Header = () => {
 	const uploadModal = useUploadModal();
+	const editNameModal = useEditNameModal();
+	const editImageModal = useEditImageModal();
 
 	const handleToggleUploadModal = useCallback(() => {
+		if (editNameModal.isOpen) {
+			editNameModal.onClose();
+		}
+
+		if (editImageModal.isOpen) {
+			editImageModal.onClose();
+		}
+
 		uploadModal.onToggle();
-	}, [uploadModal]);
+	}, [uploadModal, editNameModal, editImageModal]);
 
 	return (
 		<header className='sticky top-0 z-10 bg-black mx-auto max-w-container px-4 sm:px-6 lg:px-8'>

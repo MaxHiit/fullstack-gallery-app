@@ -1,6 +1,6 @@
 import { FilterOption } from '@/app/types';
 import Box from '../box/Box';
-import SliderInput from '../input/SliderInput';
+import FiltreSlider from './FiltreSlider';
 
 const Filter = () => {
 	const filterOptions: FilterOption[] = [
@@ -12,7 +12,7 @@ const Filter = () => {
 		<Box className='rounded-none'>
 			{filterOptions.map((filter) => (
 				<div className='mt-4' key={filter.field}>
-					<SliderInput slide={filter} />
+					<FiltreSlider slide={filter} />
 				</div>
 			))}
 		</Box>

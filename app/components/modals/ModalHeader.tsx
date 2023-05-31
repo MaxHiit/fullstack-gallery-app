@@ -11,7 +11,7 @@ const ModalHeader = ({ title, onClose }: ModalHeaderProps) => {
 		onClose();
 	};
 	return (
-		<div className='flex justify-between items-center'>
+		<div className='flex justify-between items-center mb-4'>
 			<h3 className='font-semibold leading-6 text-gray-950'>{title}</h3>
 			<Button
 				aria-label='close edit panel'

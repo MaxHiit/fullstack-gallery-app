@@ -51,7 +51,7 @@ const Modal = ({ title, isOpen, onClose, children }: ModalProps) => {
 
 	return (
 		<Box
-			className={`max-w-5xl w-[80%] fixed z-20 transition-all duration-300 ${
+			className={`max-w-3xl w-[80%] max-h-min fixed z-20 transition-all duration-300 ${
 				showModal ? 'bottom-6' : '-bottom-52'
 			} left-1/2 -translate-x-1/2`}
 		>
